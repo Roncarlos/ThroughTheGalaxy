@@ -1,0 +1,53 @@
+-- ----------------------------------------------------------------------------
+-- Paramètres de compilation de l'application
+-- ----------------------------------------------------------------------------
+
+settings =
+{
+  orientation =
+  {
+    default = 'landscapeRight',
+    supported = {'landscapeLeft', 'landscapeRight'},
+  },
+  iphone =
+  {
+    plist =
+    {
+      CFBundleDisplayName = 'Through The Galaxy', -- le nom de l'application
+      CFBundleName = 'ttg',        -- la version "courte" (16 caractères max.)
+      CFBundleIconFiles = -- une liste d'icônes système pour chaque périphérique d'exécution
+      {
+        -- App Icon Size
+        'Icon-60@3x.png', -- 180x180 | iPhone 6s Plus, iPhone 6 Plus
+        'Icon-60@2x.png', -- 120x120 | iPhone 6s, iPhone 6, iPhone SE
+        'Icon-167.png',   -- 167x167 | iPad Pro
+        'Icon-76@2x.png', -- 152x152 | iPad Retina, iPad mini
+
+        -- Settings Icon Size
+        'Icon-Small@3x.png', -- 87x87 | iPhone 6s Plus, iPhone 6 Plus
+        'Icon-Small@2x.png', -- 58x58 | iPhone 6s, iPhone 6, iPhone SE, iPad Pro, iPad Retina, iPad mini
+
+        -- Spotlight Icon Size
+        'Icon-Small-40@3x.png', -- 120x120 | iPhone 6s Plus, iPhone 6 Plus
+        'Icon-Small-40@2x.png', -- 80x80   | iPhone 6s, iPhone 6, iPhone SE, iPad Pro, iPad Retina, iPad mini
+      },
+      UIApplicationExitsOnSuspend = true, -- l'application quitte dès qu'elle est suspendue
+      UIPrerenderedIcon = true,          -- iOS appliquera ses effets sur l'icône de l'application
+      UIStatusBarHidden = true,           -- la barre de statut est masquée dès le lancement de l'application
+      MinimumOSVersion = '9.0',          -- iOS ≥ 10.0 est requis pour exécuter l'application
+    }
+  },
+  android =
+  {
+    versionCode = '10',
+    usesPermissions =
+        {
+            "android.permission.WRITE_EXTERNAL_STORAGE",
+        },
+  },
+  excludeFiles =
+  {
+    iphone = {'Icon-*dpi.png'},
+    android = {'Icon-167.png', 'Icon*@2x.png', 'Icon*@3x.png', 'Default*.png'},
+  }
+}
